@@ -1,0 +1,19 @@
+# The install block a stranger would paste, run from outside codereefai.
+name: codereef
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: read
+  issues: write
+  id-token: write
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: codereefai/action@v1
+        with:
+          mode: triage
